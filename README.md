@@ -12,7 +12,7 @@ Cette interface est **orientée objet**, et est une couche d'abstraction qui per
 
 **PDO** est disponible depuis PHP 5.1.* . Il est recommandé d'utiliser PDO pour accéder à une base de données en `MySQL` ou `MariaDB`. En effet, l'extension `mysql_` est obsolète depuis PHP 5.5.0 et sera supprimée dans une version future de PHP. L'extension `mysqli_` est une alternative `procédurale et/ou orienté objet` à `mysql_`, mais PDO est plus simple à utiliser.
 
-Pour voir les différences entre les extensions `mysql_` (obsolète), `mysqli_` et `PDO`, vous pouvez consulter le [comparatif](https://www.php.net/manual/fr/mysqlinfo.api.choosing.php) sur le site officiel de PHP.
+Pour voir les différences entre les extensions `mysqli_` et `PDO`, vous pouvez consulter le [comparatif](https://www.php.net/manual/fr/mysqlinfo.api.choosing.php) sur le site officiel de PHP.
 
 ## PDO : Installation
 
@@ -62,7 +62,7 @@ $results = null;
 $pdo = null;
 ``` 
 
-Pour la suite de la partie théorie de ce cours, j'ai créé un .pdf que vous pouvez télécharger [ici]().
+Pour la suite de la partie théorie de ce cours, j'ai créé un .pdf que vous pouvez télécharger [ici](https://github.com/WebDevCF2m2025/PDO-2025-C1/blob/main/datas/PDO-2025.pdf).
 
 ## PDO : Exercices
 
