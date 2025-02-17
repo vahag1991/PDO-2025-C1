@@ -64,33 +64,21 @@ $pdo = null;
 
 Pour la suite de la partie théorie de ce cours, j'ai créé un .pdf que vous pouvez télécharger [ici](https://github.com/WebDevCF2m2025/PDO-2025-C1/blob/main/datas/PDO-2025.pdf).
 
-## PDO : Exercices
+## PDO : Exemples et exercices
 
 Nous allons maintenant mettre en pratique ce que nous avons vu dans la partie théorique. N'oubliez pas de créer un dossier à votre nom dans `stagiaires` et d'y mettre vos fichiers.
 
-Ouvrez PHPMyAdmin, sélectionnez `MariaDB` et importez la base de données `listepays.sql` qui se trouve dans le dossier `datas` de ce dépôt.
+Ouvrez PHPMyAdmin, sélectionnez `MariaDB` et importez la base de données `pdo_c1.sql` qui se trouve dans le dossier `datas` de ce dépôt.
 
 ## Création d'un nouveau projet
 
-### Public sur Github
+### Public sur GitHub
 
-- Création du projet sur Github sur votre compte
-- Si c'est une copie d'un projet existant :  création d'un **fork¨** sur votre compte
-- **Clonage** de **votre** projet ou fork en local
+- Créez un **fork** sur votre compte
+- **Clonage** de **votre**  fork en local
 - On se met dans le projet (cd NomDuProjet) : origin/main existe déjà
 - Création de l'**upstream** pour renvoyer le projet via des **pull request** :
 `git remote add upstream SSH_KEY`
-- Création d'un `.gitignore` en y plaçant les liens versz les fichiers que l'on ne souhaite pas envoyer sur Git (et donc Github) dont le **fichier de configuration** contenant les **constantes de connexion**
-- faites des **commit** régulièrement
-- Création (ou Sauvegarder sous en `.php` si un modèle existe) du fichier de configuration pour la connexion à la DB
-- Importation ou création de la DB suivant la demande (PHPMyAdmin)
-- Création des 3 dossiers MVC
-    - M : model (Gestion des données)
-    - V : view (Gestion des templates)
-    - C : controller (Routage et lien entre les données et les templates)
-- Création du dossier `public`, qui contiendra `index.php` (Contrôleur Frontal), les fichiers CSS, JS (front), images etc...
-- Création d'un hôte virtuel vers le dossier `public` (qui afficher donc `index.php`)
-- Dans index.php :
-    - chargemement des dépendances (dont la configuration, les **fonctions** utilisées (`model`))
-    - Connexion **PDO** (non permanente)
-    - Routage : Appel des fonctions utilisées suivies des vues (`view`) suivant l'URL ($_GET et/ou $_POST)
+- **Pull** de la branche **main** de **upstream** pour avoir les dernières modifications :
+- `git pull upstream main`
+- Travaillez sur votre branche : `git checkout -b NomDeLaBranche`, pas sur la `main`
