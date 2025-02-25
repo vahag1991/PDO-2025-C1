@@ -4,8 +4,8 @@
 
 # $myBDD est un pointeur, un lien (drapeau, flag etc...) vers l'instance (donc objet), et non pas une variable contenant la connexion. on l'appel aussi l'instance de PDO.
 $myBDD = new PDO(
-    # dsn -> paramètres de connexion à la DB ecole
-    'mysql:host=localhost;dbname=ecole;port=3306;charset=utf8', 
+    # dsn -> paramètres de connexion à la DB pdo_c1
+    'mysql:host=localhost;dbname=pdo_c1;port=3306;charset=utf8', 
     # username -> login
     'root', 
     #password -> password
