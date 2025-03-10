@@ -26,4 +26,4 @@ try{
 }
 
 
-echo "si je suis ici, c'est que la connexion a fonctionnée";
+echo "Si je suis ici, c'est que la connexion a fonctionné";
