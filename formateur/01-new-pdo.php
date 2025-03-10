@@ -22,4 +22,3 @@ $a++; echo '$a a son espace propre : '."$a, et ".'$b également : '.$b;
 $myBDD2 = $myBDD;
 
 var_dump($myBDD,$myBDD2);
-
