@@ -1,6 +1,7 @@
 <?php
+# fichier à "enregistrer sous" le nom config.php
 
-# Création des constantes de connexion
+# Avec paramètre par défaut
 
 const DB_CONNECT_TYPE = "mysql"; // MySQL et MariaDB
 const DB_CONNECT_HOST = "localhost";
