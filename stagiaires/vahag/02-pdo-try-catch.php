@@ -22,3 +22,4 @@ try{
 }catch(Exception $e){
     die ($e->getmessage());
 }
+echo "ca fontionne";
