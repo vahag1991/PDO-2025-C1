@@ -27,6 +27,9 @@ Connexion PDO - PHP / MySQL, MariaDB, etc ...
     - [Documentation sur `lastInsertId`](#documentation-sur-lastinsertid)
 - [PDOStatement : Méthodes `fetch` et `fetchAll`](#pdostatement--méthodes-fetch-et-fetchall)
   - [Méthode `fetch`](#méthode-fetch)
+    - [Documentation sur `fetch`](#documentation-sur-fetch)
+  - [Méthode `fetchAll`](#méthode-fetchall)
+    
 
 
 ## PDO : Présentation
@@ -697,6 +700,30 @@ endif;
 </body>
 </html>
 ```
+
+---
+
+[Retour au menu](#menu)
+
+---
+
+#### Documentation sur `fetch`
+
+`PDOStatement::fetch()` récupère la ligne suivante d'un jeu de résultats PDOStatement.
+
+https://www.php.net/manual/fr/pdostatement.fetch.php
+
+---
+
+[Retour au menu](#menu)
+
+---
+
+### Méthode `fetchAll`
+
+La méthode `fetchAll` permet de récupérer toutes les lignes de résultat de la requête SQL. Elle retourne un tableau indexé contenant des tableaux associatifs, des tableaux indexés ou des objets selon le mode de récupération défini.
+
+
 
 ---
 
