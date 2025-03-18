@@ -12,7 +12,6 @@ try{
         username:DB_CONNECT_USER,
         password:DB_CONNECT_PWD,
     );
-
 // si erreur, instanciation de Exception avec $e comme pointeur    
 }catch(Exception $e){
     // arrêt du script avec die(), et affichage de la méthode se trouvant dans l'instance de Exception via $e
