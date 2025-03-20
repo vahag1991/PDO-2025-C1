@@ -6,7 +6,7 @@
 require_once "../config-prod.php";
 
 // en utilisant un try / catch
-// on se connecte à la DB 'pdo_c1' via PDO
+// on se connecte à la DB 'pdo_sym_c1' via PDO
 // en utilisant les constantes de connexion
 // et en activant les erreurs et le fetchAssoc par défaut
 
@@ -16,13 +16,14 @@ if (isset($_GET["page"])) {
     switch($_GET["page"]) {
         case "rubriques":
             // ici nos requêtes SQL
+
+            // fermeture de la requête
             // appel de la vue des rubriques
             include "../view/rubriques.view.php";
             break;
             ### a faire
         default:
             // appel de la vue d'une erreur
-            //'
             include "../view/error404.view.php";
             break;
     }
@@ -33,5 +34,5 @@ if (isset($_GET["page"])) {
     include "../view/accueil.view.php";
 }
 
-// fermeture de la requête
+
 // fermeture de connexion
