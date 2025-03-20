@@ -10,7 +10,7 @@ $password = DB_CONNECT_PWD;
 
 try {
     $db = new PDO($dsn, $username, $password);
-    echo "Connection successful!";
+    //echo "Connection successful!";
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
     // arrêt du script et affichage de l'erreur de connexion
@@ -19,13 +19,15 @@ try {
 
 // Première requête SQL envoyée et récupérée
 
-$request = $db->query('SELECT * FROM `thearticle` ORDER BY `thearticle`.`thearticledate` DESC
+$request = $db->query('SELECT * FROM `thearticle`
+         -- WHERE `thearticle`.`idthearticle` = 10000
+         ORDER BY `thearticle`.`thearticledate` DESC
 LIMIT 20;
 ');
 
 // nombre de résultats
 $numreq = $request->rowCount();
-echo $numreq;
+//echo $numreq;
 
 // si le nombre de résultats est plus grand que 0
 if ($numreq > 0) {
