@@ -28,10 +28,9 @@
         <?php
         // fin de boucle
     } else {
-        echo "il y a une erreur";
         // sinon (on a des erreurs)
         ?>
-    <h3>Affichage de l'erreur</h3>
+    <h3><?=$error?></h3>
     <?php
     }
     // fin du if/else

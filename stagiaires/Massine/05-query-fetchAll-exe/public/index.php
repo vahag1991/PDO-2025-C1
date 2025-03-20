@@ -19,7 +19,11 @@ try {
     die("Code erreur : {$e->getCode()} | Message : {$e->getMessage()}");
 }
 // Première requête SQL envoyée et récupérée
-$request = $db->query("SELECT `thearticletitle`,`thearticletext`,`thearticledate` FROM `thearticle` ORDER BY `thearticledate` DESC LIMIT 20");
+$request = $db->query("SELECT `thearticletitle`,`thearticletext`,`thearticledate` 
+FROM `thearticle` 
+WHERE idthearticle = 10000
+ORDER BY `thearticledate` DESC 
+LIMIT 20");
 /*
  * Sélectionnez les champs `thearticle`.`thearticletitle`,
  * `thearticle`.`thearticletext`,
@@ -33,7 +37,7 @@ $nbResult = $request->rowCount();
 if ($nbResult > 0) {
     $tab =$request->fetchAll(PDO::FETCH_ASSOC);
 } else {
-    echo $error = "Pas encore de message";
+    $error = "Pas encore de message";
 }
 // transformation de la requête en format
 // lisible par PHP en utilisant fetchAll
@@ -53,4 +57,4 @@ $db = null;
 // chargement de notre vue
 include "../view/homepageView.php";
 // débogage
-var_dump($nbResult);
+//var_dump($nbResult);
