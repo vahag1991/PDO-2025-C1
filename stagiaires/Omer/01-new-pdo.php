@@ -6,4 +6,4 @@ $myBDD = new PDO(
 );
 
 
-echo "hi";
+echo "hello";
