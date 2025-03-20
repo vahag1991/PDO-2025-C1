@@ -11,10 +11,9 @@ require_once "../config-prod.php";
 // et en activant les erreurs et le fetchAssoc par défaut
 try {
     $db = new PDO(
-        'mysql:host=localhost;dbname=pdo_sym_c1;port=3306;charset=utf8',
-        'root',
-        '',
-
+        dsn:DB_CONNECT_TYPE.":host=".DB_CONNECT_HOST.";dbname=".DB_CONNECT_NAME.";port=".DB_CONNECT_PORT.";charset=".DB_CONNECT_CHARSET,
+        username:DB_CONNECT_USER,
+        password:DB_CONNECT_PWD,
     );
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {

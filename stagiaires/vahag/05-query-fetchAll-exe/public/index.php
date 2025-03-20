@@ -35,6 +35,7 @@ $request = $db->query("SELECT
     thearticle.thearticledate
 FROM 
     thearticle
+-- WHERE idthearticle = 10000
 ORDER BY 
     thearticle.thearticledate DESC
 LIMIT 20;
