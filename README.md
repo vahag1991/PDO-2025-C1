@@ -28,8 +28,10 @@ Connexion PDO - PHP / MySQL, MariaDB, etc ...
 - [PDOStatement : Méthodes `fetch` et `fetchAll`](#pdostatement--méthodes-fetch-et-fetchall)
   - [Méthode `fetch`](#méthode-fetch)
     - [Documentation sur `fetch`](#documentation-sur-fetch)
-  - [Méthode `fetchAll`](#méthode-fetchall)
-    
+  - [Méthode `fetchAll`](#méthode-fetchall) 
+    - [Documentation sur `fetchAll`](#documentation-sur-fetchall)
+- [PDO : Les requêtes préparées](#pdo--les-requêtes-préparées)
+ 
 
 
 ## PDO : Présentation
@@ -793,9 +795,67 @@ endif;
 </html>
 ```
 
+---
+
+[Retour au menu](#menu)
+
+---
+
+#### Documentation sur `fetchAll`
+`PDOStatement::fetchAll()` récupère toutes les lignes d'un jeu de résultats PDOStatement et le retourne sous forme de tableau indexé contenant des tableaux associatifs, des tableaux indexés ou des objets selon le mode de récupération défini.
+
+https://www.php.net/manual/fr/pdostatement.fetchall.php
 
 ---
 
 [Retour au menu](#menu)
 
 ---
+
+## PDO : Les requêtes préparées
+
+Les requêtes préparées sont une fonctionnalité de PDO qui permet de préparer une requête SQL avant de l'exécuter. Cela permet de séparer la requête SQL des données, ce qui permet d'éviter les **injections SQL**.
+
+Les requêtes préparées sont plus sécurisées et plus performantes que les requêtes non préparées, car elles permettent de préparer la requête une seule fois et de l'exécuter plusieurs fois avec des données différentes.
+
+La méthode `PDO::prepare` prépare une requête SQL à être exécutée en offrant la possibilité
+de mettre des marqueurs qui seront substitués lors de l'exécution.
+
+Il existe deux types de marqueurs qui sont respectivement `?` et les marqueurs nominatifs (par exemple `:marqueur`).
+Ces marqueurs ne sont pas mélangeables : donc pour une même requête, il faut choisir l'une ou l'autre des options.
+
+On peut attribuer des valeurs aux marqueurs en utilisant la méthode `bindValue` ou `bindParam`. On peut aussi utiliser la méthode `execute` pour exécuter la requête en passant les valeurs des marqueurs en paramètre dans un tableau.
+
+La requête ne sera exécutée qu'une fois que toutes les valeurs des marqueurs auront été attribuées et que la méthode `execute` aura été appelée.
+
+Exemple avec un `SELECT` :
+```php
+<?php
+# index.php
+# inclusion du fichier de configuration
+require_once "config-dev.php";
+# connexion voir à "Connexion à la base de données complète"
+# requête SQL avec un marqueur nommé
+$sql = "SELECT * FROM `users` WHERE `login` = :login";
+$query = $db->prepare($sql);
+// on attribue la valeur du marqueur
+$query->bindValue(':login', 'admin', PDO::PARAM_STR);
+// on exécute la requête
+$query->execute();
+// on récupère le résultat
+$result = $query->fetch(PDO::FETCH_ASSOC);
+// fermeture de la requête
+
+$query->closeCursor();
+// fermeture de la connexion
+$db = null;
+# ...
+```
+---
+
+[Retour au menu](#menu)
+
+---
+
+
+
