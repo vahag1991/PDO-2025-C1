@@ -19,11 +19,7 @@ try {
 
 // Première requête SQL envoyée et récupérée
 
-$request = $db->query('SELECT 
-*
-FROM 
-    thearticle
-
+$request = $db->query('SELECT * FROM `thearticle` ORDER BY `thearticle`.`thearticledate` DESC
 LIMIT 20;
 ');
 
