@@ -25,6 +25,7 @@ thearticle.thearticletext,
 thearticle.thearticledate
 FROM 
     thearticle
+-- WHERE  thearticle.idthearticle = 10000
 ORDER BY
     thearticle.thearticledate DESC
     /* nombre de résultats*/

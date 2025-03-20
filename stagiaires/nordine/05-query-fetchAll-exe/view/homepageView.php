@@ -22,10 +22,13 @@
     <?php
     // fin du if/else
     endforeach;
-} else { echo $error;
+} else {
+            ?>
+            <h3><?=$error?></h3>
+    <?php
 }
     ?>
-    <h3>Affichage de l'erreur</h3>
+
    
 </body>
 </html>
