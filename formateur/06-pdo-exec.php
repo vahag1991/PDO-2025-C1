@@ -1,4 +1,4 @@
-<?php
+h<?php
 # Chargement des constantes de connexion
 require_once "config_pdo_c1.php";
 
@@ -97,7 +97,7 @@ $db = null;
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($articles30 as $article): ?>
+    <?php foreach ($articles as $article): ?>
         <tr>
             <td><?=$article['idthearticle']?></td>
             <td><?=$article['thearticletitle']?></td>
