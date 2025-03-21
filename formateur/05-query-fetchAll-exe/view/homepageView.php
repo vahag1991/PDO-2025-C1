@@ -10,23 +10,28 @@
 <body>
     <h1>Accueil | Derniers articles</h1>
     <?php
-    // si pas d'erreurs
+    // si il y a des articles (c'est un tableau)
+    if(is_array($articles)):
     ?>
-    <h2>Nombre d'articles : ...</h2>
+    <h2>Nombre d'articles : <?=$nbArticles?></h2>
     <?php
     // tant que l'on a des articles
+    foreach($articles as $article):
     ?>
-    <h3>titre</h3>
-    <p>texte</p>
-    <p>Ecrit le date</p>
+    <h3><?php echo $article['thearticletitle']?></h3>
+    <p><?=$article['thearticletext']?></p>
+    <p>Ecrit le <?=$article['thearticledate']?></p>
     <?php
     //fin de boucle
-
-    // sinon (on a des erreurs)
+    endforeach;
+    // sinon (pas d'articles), donc n'est pas is_array
+    // c'est un is_string
+    else:
     ?>
-    <h3>Affichage de l'erreur</h3>
+    <h3><?=$articles?></h3>
     <?php
     // fin du if/else
+    endif;
     ?>
 </body>
 </html>

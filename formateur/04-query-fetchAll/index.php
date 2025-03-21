@@ -26,6 +26,8 @@ $request = $db->query("SELECT * FROM theuser");
 // nombre de résultats
 $nbResponse = $request->rowCount();
 
+
+
 // transformation de la requête en format
 // lisible par PHP en utilisant fetch ou fetchAll
 // Pour PHP, le tableau associatif est le mieux
