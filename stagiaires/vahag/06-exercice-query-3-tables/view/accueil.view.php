@@ -15,6 +15,6 @@ include "inc/menu.inc.view.php";
 <p>Bienvenue sur notre site !</p>
 <p>Les 3 autres pages vont afficher du contenu d'une base de donnée, chacune affectant une table</p>
 <p>Faites un css perso et changez-moi cette photo</p>
-<img src="img/mikhawa.png" alt="mikhawa" title="mikhawa"/>
+<img src="img/avatars-000129722476-laeur8-t1080x1080.jpg" alt="mikhawa" title="mikhawa"/>
 </body>
 </html>

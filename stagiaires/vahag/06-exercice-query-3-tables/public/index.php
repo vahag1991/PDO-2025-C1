@@ -30,12 +30,8 @@ if (isset($_GET["page"])) {
     switch($_GET["page"]) {
         case "rubriques":
             // ici nos requêtes SQL
-                 $request = $db->query("SELECT 
-                        *
-                    FROM 
-                        section                 
-                    ");
-
+            $request = $db->query(' SELECT * FROM section');
+ 
             $response = $request->fetchAll(PDO::FETCH_ASSOC);
             // fermeture de la requête.
             $request->closeCursor();
@@ -44,11 +40,10 @@ if (isset($_GET["page"])) {
             break;
             ### a faire
         case "users":
-            $request = $db->query("SELECT 
-            *
-        FROM 
-            user                
-        ");
+            $request = $db->query('SELECT username, fullname
+            FROM user
+            ORDER BY username ASC;
+            ');
 
             $response = $request->fetchAll(PDO::FETCH_ASSOC);
             // fermeture de la requête.
@@ -59,11 +54,11 @@ if (isset($_GET["page"])) {
             
 
         case "articles":
-                $request = $db->query("SELECT 
-                *
-            FROM 
-                article                
-            ");
+            $request = $db->query('SELECT *
+            FROM article
+            ORDER BY article_date_create DESC
+            LIMIT 30;
+            ');
     
                 $response = $request->fetchAll(PDO::FETCH_ASSOC);
                 // fermeture de la requête.

@@ -9,10 +9,24 @@
 </head>
 <body>
 <?php
-include "inc/menu.inc.view.php";   var_dump($response);
+include "inc/menu.inc.view.php";   
 ?>
 <h1>Toutes les champs de toutes  les rubriques</h1>
+<?php 
+     
+            foreach ($response as $art):
+        
+            ?>
+        <h3><?php echo $art ["section_title"] ?></h3>
+        <p><?php echo $art ["section_slug"] ?></p>
+        <p><?php echo $art["section_detail"] ?></p>
+        
+    
+    <?php
+    // fin du if/else
+    endforeach;
 
+    ?>
 
 </body>
 </html>

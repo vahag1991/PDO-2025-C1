@@ -9,10 +9,24 @@
 </head>
 <body>
 <?php
-include "inc/menu.inc.view.php"; var_dump($response)
+include "inc/menu.inc.view.php"; 
 ?>
 <h1>Les utilisateurs</h1>
 <p>Par ordre username ascendant, que le username et fullname</p>
+<?php 
+     
+            foreach ($response as $art):
+        
+            ?>
+        <h3><?php echo $art ["username"] ?></h3>
+        <p><?php echo $art ["fullname"] ?></p>
+ 
+    
+    <?php
+    // fin du if/else
+    endforeach;
+
+    ?>
 
 </body>
 </html>

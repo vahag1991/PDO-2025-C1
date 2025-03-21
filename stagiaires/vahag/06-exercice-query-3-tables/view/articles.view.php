@@ -9,10 +9,26 @@
 </head>
 <body>
 <?php
-include "inc/menu.inc.view.php"; var_dump($response)
+include "inc/menu.inc.view.php"; 
 ?>
 <h1>Nos 30 derniers articles</h1>
 <p>Par date desc</p>
+<?php 
+     
+            foreach ($response as $art):
+        
+            ?>
+        <h3><?php echo $art ["title"] ?></h3>
+        <p><?php echo $art ["title_slug"] ?></p>
+        <p><?php echo $art["text"] ?></p>
+        
+    
+    <?php
+    // fin du if/else
+    endforeach;
+
+    ?>
+
 
 </body>
 </html>
