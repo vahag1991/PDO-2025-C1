@@ -7,12 +7,21 @@ require_once "../config.php";
 try{
     // instanciation avec PDO
     $db = new PDO(
-        dsn:DB_CONNECT_TYPE.":host=".DB_CONNECT_HOST.";dbname=".DB_CONNECT_NAME.";port=".DB_CONNECT_PORT.";charset=".DB_CONNECT_CHARSET,
-        username:DB_CONNECT_USER,
-        password:DB_CONNECT_PWD,
+        DB_CONNECT_TYPE.":host=".DB_CONNECT_HOST.";dbname=".DB_CONNECT_NAME.";port=".DB_CONNECT_PORT.";charset=".DB_CONNECT_CHARSET,
+        DB_CONNECT_USER,
+        DB_CONNECT_PWD,
+        // [
+        //     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        //     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+
+            //     connexion permanante doit tjr etre dans ce tableau d'option, setAttribute ()
+            //    PDO::ATTR_PERSISTENT => true
+        // ]
     );
     // pour être certain de l'affichage des erreurs des requêtes
     // activations des erreurs sur n'importe quel serveur
+
+
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }catch(Exception $e){
     // arrêt du script et affichage de l'erreur de connexion
@@ -69,8 +78,4 @@ $db = null;
 // chargement de notre vue
 include "../view/homepageView.php";
 // débogage
-
-
-
-
 
