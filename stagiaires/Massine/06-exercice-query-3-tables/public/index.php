@@ -61,3 +61,4 @@ if (isset($_GET["page"])) {
 
 
 // fermeture de connexion
+$db = null;
