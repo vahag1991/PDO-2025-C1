@@ -79,9 +79,9 @@ $db = null;
 <p>PDO::exec — Prépare et Exécute une requête SQL sans marque substitutive (non préparée), est généralement utilisée pour les "INSERT, DELETE ou UPDATE" sans entrée d'utilisateur</p>
 <p>PDO::exec — Exécute une requête SQL et retourne le nombre de lignes affectées par la requête</p>
 <p>$lastId = $db->lastInsertId(); permet de récupérer la dernière insertion (avec la connexion qui est celle de l'utilisateur courant)</p>
-<h2>Nombre de ligne insérée: <?=$insertTheArticle?>, ID de cette dernière ligne : <?=$lastId?></h2>
+<h2>Nombre de lignes insérées: <?=$insertTheArticle?>, ID de cette dernière ligne : <?=$lastId?></h2>
 <h3>Nombre de lignes modifiées par l'update: <?=$updateTheArticle?></h3>
-<h3>Dernier article inséré:</h3>
+<h3>Dernier article inséré :</h3>
 <h4><?=$lastArticle['idthearticle']?> | <?=$lastArticle['thearticletitle']?></h4>
 <p><?=$lastArticle['thearticletext']?></p>
 <p> le <?=$lastArticle['thearticledate']?></p>
