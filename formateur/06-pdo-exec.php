@@ -1,4 +1,4 @@
-h<?php
+<?php
 # Chargement des constantes de connexion
 require_once "config_pdo_c1.php";
 
@@ -43,7 +43,7 @@ $insertTheArticle = $db->exec("INSERT INTO `thearticle`  (`thearticletitle`, `th
 $lastId = (int) $db->lastInsertId();
 
 // on modifie la date des articles dont l'id est entre 400 et 410 pour la date du jour
-$updateTheArticle = $db->exec("UPDATE `thearticle` SET `thearticledate` = NOW() WHERE `idthearticle` BETWEEN 400 AND 410");
+$updateTheArticle = $db->exec("UPDATE `thearticle` SET `thearticledate` = NOW() WHERE `idthearticle` BETWEEN 405 AND 410");
 
 // on peut charger le dernier article inséré grâce à la méthode 'query' de PDO
 // et $lastId
@@ -53,7 +53,7 @@ $lastArticle = $lastArticleQuery->fetch();
 
 $lastArticleQuery->closeCursor(); // on ferme le curseur de la requête
 
-// on peut charger les derniers articles  grâce à la méthode 'query' de PDO
+// on peut charger les derniers articles grâce à la méthode 'query' de PDO
 // et $lastId
 $articleQuery30 = $db->query("SELECT * FROM `thearticle` ORDER BY `thearticledate` DESC LIMIT 30");
 // on va chercher la 30 derniers articles, donc fetchAll
@@ -97,7 +97,7 @@ $db = null;
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($articles as $article): ?>
+    <?php foreach ($articles30 as $article): ?>
         <tr>
             <td><?=$article['idthearticle']?></td>
             <td><?=$article['thearticletitle']?></td>
