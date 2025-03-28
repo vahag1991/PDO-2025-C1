@@ -13,7 +13,7 @@ require_once "../config-prod.php";
 try {
     $db = new PDO(
         DB_CONNECT_TYPE.":host=". DB_CONNECT_HOST. ";dbname=" .DB_CONNECT_NAME.";charset=".
-        DB_CONNECT_CHARSET,
+        DB_CONNECT_CHARSET.";port=".DB_CONNECT_PORT,
         DB_CONNECT_USER,
         DB_CONNECT_PWD,
     );
