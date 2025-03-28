@@ -11,14 +11,11 @@
     <title>Sym |Accueil</title>
 </head>
 <body>
-<?php
-// appel du menu
-include 'inc/public.menu.inc.view.php';
-?>
+
 <h1>Sym | Accueil</h1>
 <h2>Bienvenue sur notre site</h2>
 <h3>Nos 10 derniers articles</h3>
-
+<p>Affichage des 10 derniers articles</p>
 <?php
 //var_dump($pdo);
 //var_dump($menu);

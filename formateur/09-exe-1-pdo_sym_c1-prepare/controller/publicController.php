@@ -2,14 +2,15 @@
 # CONTROLLER
 # contrôleur pour les personnes non connectées
 // chargement des dépendances
-require_once "../model/SectionModel.php"; // modèle de section
+
 require_once "../model/ArticleModel.php"; // modèle de article
 
 //var_dump($pdo);
 
 // actions
-// chargement du menu MODEL
-$menu = getAllSectionsMenu($pdo);
+// chargement de la fonction qui récupère les 10 derniers articles
+// champs : title , title_slug, text et article_date_create
+// classés par article_date_create DESC
 
 //var_dump($pdo);
 
