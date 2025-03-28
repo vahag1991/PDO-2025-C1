@@ -53,7 +53,7 @@ require_once "PDOConnect.php";
         $results = $query->fetchAll();
     }catch(Exception $e){
         // affichage de l'erreur
-        die($e->getMessage());
+        die($e->getMessage()." | Erreur car le LIMIT veut des int côté SQL");
     }
     echo $query->rowCount();
     var_dump($_POST,$results);
