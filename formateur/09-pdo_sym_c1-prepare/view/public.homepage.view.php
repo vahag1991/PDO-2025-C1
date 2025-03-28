@@ -8,15 +8,7 @@
     <title>Accueil</title>
 </head>
 <body>
-<nav>
-    <?php
-    foreach($menu as $item):
-    ?>
-    <a href="?section=<?=$item['section_slug']?>"><?=$item['section_title']?></a> |
-    <?php
-    endforeach;
-    ?>
-</nav>
+
 <h1>Hello world</h1>
 
 <?php
