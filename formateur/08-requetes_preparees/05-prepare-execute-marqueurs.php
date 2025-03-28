@@ -67,13 +67,9 @@ require_once "PDOConnect.php";
     // on prépare la requête
     $query = $PDOConnect->prepare($sql);
 
-    // bindValue avec des numériques dans l'ordre de gauche à droite et de haut en bas, commence à 1
-    $query->bindValue(1,$num1, PDO::PARAM_INT);
-    $query->bindValue(2,$num2,PDO::PARAM_INT);
-    // on utilise le try catch sur l'execute
     try{
-        // exécution de la requête du prepare
-        $query->execute();
+        // exécution de la requête du prepare en utilisant la méthode par défaut bindValue et un tableau indexé
+        $query->execute([$num1,$num2]);
         // récupération des résultats
         $results = $query->fetchAll();
     }catch(Exception $e){
