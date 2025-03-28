@@ -1,3 +1,6 @@
+<?php
+# VIEW
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,7 +11,10 @@
     <title>Accueil</title>
 </head>
 <body>
-
+<?php
+// appel du menu
+include 'inc/public.menu.inc.view.php';
+?>
 <h1>Hello world</h1>
 
 <?php

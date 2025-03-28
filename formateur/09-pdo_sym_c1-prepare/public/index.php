@@ -1,4 +1,5 @@
 <?php
+# CONTROLLER
 /*
  * Contrôleur frontal
  */

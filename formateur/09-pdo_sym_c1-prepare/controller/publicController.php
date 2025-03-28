@@ -1,10 +1,13 @@
 <?php
+# CONTROLLER
 # contrôleur pour les personnes non connectées
 // chargement des dépendances
 require_once "../model/SectionModel.php"; // modèle de section
 
+//var_dump($pdo);
+
 // actions
-// chargement du menu
+// chargement du menu MODEL
 $menu = getAllSectionsMenu($pdo);
 
 //var_dump($pdo);
