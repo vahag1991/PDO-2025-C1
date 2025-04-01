@@ -15,6 +15,9 @@ $menu = getAllSectionsMenu($db);
 // classés par article_date_create DESC
 $articles = getTenLastArticles($db);
 
+// nombre total d'articles publiés
+$nbPublishedArticles = countArticlesPublished($db);
+
 //var_dump($pdo);
 
 // final on appel la vue

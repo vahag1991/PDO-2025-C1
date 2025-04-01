@@ -17,7 +17,7 @@ include "inc/public.menu.inc.view.php";
 <h1>Sym | Accueil</h1>
 <h2>Bienvenue sur notre site</h2>
 <h3>Nos 10 derniers articles</h3>
-<p>Affichage des 10 derniers articles</p>
+<p>Affichage des 10 derniers articles sur ... articles</p>
 <?php
 // pas de résultats ou erreur (donc en string)
 if(is_string($articles)):
@@ -39,6 +39,7 @@ endif;
 //var_dump($pdo);
 //var_dump($menu);
 //var_dump($articles);
+var_dump($nbPublishedArticles);
 ?>
 </body>
 </html>
