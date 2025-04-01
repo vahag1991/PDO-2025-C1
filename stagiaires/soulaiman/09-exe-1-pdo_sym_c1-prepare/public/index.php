@@ -30,3 +30,4 @@ try{
 include "../controller/publicController.php";
 
 // bonne pratique (fermeture de la connexion)
+$pdo=null;
