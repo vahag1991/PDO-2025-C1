@@ -29,7 +29,7 @@ function getTenLastArticles(PDO $myDB): array|string
 
 // on compte le nombre total d'articles
 // publiés dans la table article
-function countArticlesPublished(PDO $pdo)
+function countArticlesPublished(PDO $pdo): int
 {
     $query = $pdo->query(
         "
@@ -39,6 +39,6 @@ SELECT COUNT(*) as nb
         WHERE published = 1;"
     );
     $nb = $query->fetch();
-    return $nb;
+    return $nb['nb']; // on renvoie le nombre d'articles publiés
 }
 
