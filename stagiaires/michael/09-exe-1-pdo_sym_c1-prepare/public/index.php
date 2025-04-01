@@ -15,7 +15,9 @@ try{
         username:DB_CONNECT_USER,
         password:DB_CONNECT_PWD,
     );
+    // affichage exception en cas d'erreurs SQL
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // les données récupérées de SQL sont formatés par défaut en tableau associatif
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 }catch(Exception $e){
     // arrêt du script et affichage de l'erreur de connexion

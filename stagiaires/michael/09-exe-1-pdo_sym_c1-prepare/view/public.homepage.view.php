@@ -19,7 +19,7 @@
 <?php
 //var_dump($pdo);
 //var_dump($menu);
-
+var_dump($articles);
 ?>
 </body>
 </html>

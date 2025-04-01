@@ -3,7 +3,7 @@
 # contrôleur pour les personnes non connectées
 // chargement des dépendances
 
-require_once "../model/ArticleModel.php"; // modèle de article
+require_once "../model/ArticleModel.php"; // modèle d'article
 
 //var_dump($pdo);
 
@@ -11,6 +11,7 @@ require_once "../model/ArticleModel.php"; // modèle de article
 // chargement de la fonction qui récupère les 10 derniers articles
 // champs : title , title_slug, text et article_date_create
 // classés par article_date_create DESC
+$articles = getTenLastArticles($db);
 
 //var_dump($pdo);
 

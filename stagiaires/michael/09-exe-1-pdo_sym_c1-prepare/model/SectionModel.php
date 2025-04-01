@@ -21,6 +21,7 @@ FROM section");
         // sinon (non visible, car return ligne précédente)
         return $request->fetchAll();
     }catch (Exception $e){
+        // on renvoie en string le message d'erreur
         return $e->getMessage();
     }
 }
