@@ -1,10 +1,13 @@
 <?php
+# CONTROLLER
+/*
+ * Contrôleur frontal
+ */
 
-# index.php | Contrôleur frontal
+# chargement des variables indispensables
+require_once '../config-dev.php';
 
-// on appelle le fichier config-prod.php (requis une seule fois).
-require_once "../config-prod.php";
-
+# connexion à la base de donnée MariaDB pdo_sym_c1
 try{
     // instanciation avec PDO
     $db = new PDO(
@@ -12,17 +15,16 @@ try{
         username:DB_CONNECT_USER,
         password:DB_CONNECT_PWD,
     );
-    // pour être certain de l'affichage des erreurs des requêtes
-    // activations des erreurs sur n'importe quel serveur
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 }catch(Exception $e){
     // arrêt du script et affichage de l'erreur de connexion
     die("Code erreur : {$e->getCode()} | Message : {$e->getMessage()}");
 }
 
-// appel du routeur
-require_once "../controller/routeController.php";
 
+// on va chercher le contrôleur public, celui utilisé pour les non-connectés
+include "../controller/publicController.php";
 
-// fermeture de connexion
+// bonne pratique (fermeture de la connexion)
 $db = null;
