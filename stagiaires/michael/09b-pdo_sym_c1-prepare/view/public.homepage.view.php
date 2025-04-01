@@ -11,7 +11,9 @@
     <title>Sym |Accueil</title>
 </head>
 <body>
-
+<?php
+include "inc/public.menu.inc.view.php";
+?>
 <h1>Sym | Accueil</h1>
 <h2>Bienvenue sur notre site</h2>
 <h3>Nos 10 derniers articles</h3>
