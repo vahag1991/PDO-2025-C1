@@ -31,7 +31,7 @@ else:
 ?>
 <h4><a href="?article=<?=$article['title_slug']?>"><?=$article['title']?></a></h4>
 <h5>Ecrit par ... le <?=$article['article_date_create']?></h5>
-<p><?=$article['text']?></p>
+        <p><?=$article['text']?> ... <a href="?article=<?=$article['title_slug']?>">Lire la suite</a></p>
 <hr>
 <?php
     endforeach;
