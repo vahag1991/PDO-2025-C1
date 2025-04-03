@@ -13,6 +13,7 @@ function getTenLastArticles(PDO $myDB): array|string
     try {
         $result = $myDB->query('
         -- LEFT permet de couper une chaîne de 0 à ,x caractères
+        -- on SUBSTRING() et SUBSTR(`text`, 1, 250) pour couper la chaîne
         SELECT title , title_slug, LEFT(`text`,250) as text, article_date_create 
         FROM article
         WHERE published = 1
