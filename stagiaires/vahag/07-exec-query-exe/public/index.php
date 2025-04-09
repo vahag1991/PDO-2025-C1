@@ -15,6 +15,7 @@ try{
     // pour être certain de l'affichage des erreurs des requêtes
     // activations des erreurs sur n'importe quel serveur
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 }catch(Exception $e){
     // arrêt du script et affichage de l'erreur de connexion
     die("Code erreur : {$e->getCode()} | Message : {$e->getMessage()}");

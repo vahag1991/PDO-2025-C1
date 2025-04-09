@@ -27,3 +27,4 @@ try{
 include "../controller/publicController.php";
 
 // bonne pratique (fermeture de la connexion)
+$db = null;

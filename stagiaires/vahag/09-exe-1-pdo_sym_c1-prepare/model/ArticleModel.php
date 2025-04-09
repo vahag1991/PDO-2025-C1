@@ -16,7 +16,7 @@ ORDER BY
     article.article_date_create DESC
 LIMIT 10;");
         // pas de résultat, on envoie l'erreur
-        if($request->rowCount() === 0) return "Pas encore de section";
+        if($request->rowCount() === 0) return "Pas encore d'articles";
         // sinon (non visible, car return ligne précédente)
         return $request->fetchAll();
     }catch (Exception $e){
