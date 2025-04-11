@@ -38,7 +38,7 @@
         DATE
     </div>
     <?php
-    var_dump($db, $messages);
+    var_dump($db, $messages,$_POST);
     ?>
     <hr>
 </body>
