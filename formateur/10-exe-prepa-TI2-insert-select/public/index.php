@@ -18,7 +18,7 @@ require_once "../config.php";
 // si on a envoyé le formulaire avec les bons champs
 
 
-// on veut récupérer tous les messages de la table `article`
+// on veut récupérer tous les messages de la table `article` par date DESC
 
 
 

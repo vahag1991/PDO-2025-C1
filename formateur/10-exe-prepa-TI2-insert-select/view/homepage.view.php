@@ -24,11 +24,11 @@ Plusieurs messages : Il y a X messages
 </pre>
 <hr>
 <pre>
-    Nos messages par date DESC
+    Nos messages par create_date DESC
 
-    NOM
-    TEXTE
-    DATE
+    surname
+    message
+    create_date
 </pre>
 <hr>
 </body>

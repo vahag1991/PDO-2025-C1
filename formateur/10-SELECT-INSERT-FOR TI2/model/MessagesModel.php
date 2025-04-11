@@ -59,6 +59,7 @@ function addNewMessages(PDO $con, string $name, string $email, string $message):
                 (`name`,`email`,`message`)
                 VALUES (?,?,?);"
     );
+    # Exécution de la requête
     try{
         $prepare->execute([$nameInsert,$emailInsert,$messageInsert]);
         return true;
