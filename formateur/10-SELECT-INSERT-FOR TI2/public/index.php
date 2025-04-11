@@ -29,9 +29,24 @@ try{
 
 # ici notre code de traitement de la page
 
+// si on a envoyé le formulaire
+if(isset($_POST['name'],$_POST['email'],$_POST['message'])){
+
+    // tentative d'insertion
+    $insert = addNewMessages($db, $_POST['name'],$_POST['email'],$_POST['message']);
+    // ça a fonctionné
+    if($insert===true){
+        header("Location: ./");
+        exit();
+    }else{
+        $error = $insert;
+    }
+}
 
 
 
+# chargement de tous nos articles
+$articles = getAllMessagesByDateDesc($db);
 
 
 # chargement de la vue
