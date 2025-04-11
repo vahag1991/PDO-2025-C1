@@ -44,7 +44,7 @@ if(isset($_POST['name'],$_POST['email'],$_POST['message'])){
 
     // on est ici
 
-   echo  setArticle($db,$name,$email,$message);
+    setArticle($db,$name,$email,$message);
 }
 
 
