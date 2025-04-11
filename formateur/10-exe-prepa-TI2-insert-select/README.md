@@ -2,6 +2,12 @@
 
 ## Web C2 2025
 
+### Création d'une branche
+
+Récupérez sur votre main la main du projet
+
+Créez une branche et copiez `formateur/10-exe-prepa-TI2-insert-select` dans votre dossier stagiaire.
+
 ### Importation de données
 
 Importez le fichier `datas/pdo_c1_exe_ti2.sql` via `phpMyAdmin` ou un autre outil de gestion de base de données vers `MySQL`.
