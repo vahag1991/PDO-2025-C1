@@ -44,10 +44,10 @@ function addNewMessages(PDO $con, string $name, string $email, string $message):
 
     // vérification des champs
     #
-    if(empty($nameInsert)) $error .="Nom incorrecte<br>";
+    if(empty($nameInsert)) $error .="Nom incorrect<br>";
     if(strlen($nameInsert)>100) $error .= "Nom trop long !<br>";
     if($emailInsert===false) $error .="Email non valide";
-    if(empty($messageInsert)) $error .="Message incorrecte<br>";
+    if(empty($messageInsert)) $error .="Message incorrect<br>";
     if(strlen($messageInsert)>600) $error .= "Message trop long !<br>";
 
     # si on a une erreur, on sort et on envoie les erreurs
