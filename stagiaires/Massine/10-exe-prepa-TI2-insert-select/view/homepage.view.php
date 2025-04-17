@@ -20,6 +20,9 @@
         <label for="text">Texte :</label>
         <textarea name="text" id="text" rows="5" required></textarea>
 
+        <label for="email">Email :</label>
+        <input name="email" id="email" type="email">
+
         <label for="date">Date :</label>
         <input type="date" name="date" id="date" required>
 

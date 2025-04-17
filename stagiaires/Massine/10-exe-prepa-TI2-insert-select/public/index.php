@@ -37,10 +37,10 @@ try {
 // tentative d'insertion
 
 
-if (isset($_POST['name'], $_POST['text'], $_POST['date'])) {
+if (isset($_POST['name'], $_POST['email'],$_POST['text'], $_POST['date'])) {
 
     // tentative d'insertion
-    $insert = setArticle($db, $_POST['name'], $_POST['text'], $_POST['date']);
+    $insert = setArticle($db, $_POST['name'],$_POST['email'], $_POST['text'], $_POST['date']);
     // ça a fonctionné
     if ($insert === true) {
         header("Location: ./");
