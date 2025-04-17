@@ -12,7 +12,7 @@ function getAllarticleByDateDesc(PDO $con): array
 function addNewarticle(PDO $con, string $name, string $email, string $message): bool|string
 {
     $error="";
-    $nameInsert = trim(htmlspecialchars(strip_tags($name),));
+    $nameInsert = trim(htmlspecialchars(strip_tags($name),ENT_QUOTES));
     $emailInsert = filter_var($email,FILTER_VALIDATE_EMAIL); # garde l'email si juste, envoie false si non correcte
     $messageInsert = trim(htmlspecialchars(strip_tags($message),ENT_QUOTES));
 
