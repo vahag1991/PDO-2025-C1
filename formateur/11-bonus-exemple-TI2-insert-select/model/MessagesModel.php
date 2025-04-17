@@ -80,8 +80,11 @@ function getNbTotalMessage(PDO $con): int
 {
     // on compte le nombre de messages total
     $query = $con->query("SELECT COUNT(*) as nb FROM `messages` ");
+    # bonne pratique
+    $result = $query->fetch()['nb'];
+    $query->closeCursor();
     // on renvoie l'entier stocké dans nb
-    return $query->fetch()['nb'];
+    return $result;
 }
 
 function getMessagePagination(PDO $con, int $offset, int $limit): array
@@ -95,7 +98,10 @@ function getMessagePagination(PDO $con, int $offset, int $limit): array
         $prepare->bindParam(1,$offset,PDO::PARAM_INT);
         $prepare->bindParam(2,$limit,PDO::PARAM_INT);
         $prepare->execute();
-        return $prepare->fetchAll();
+        # pour bonne pratique
+        $result = $prepare->fetchAll();
+        $prepare->closeCursor();
+        return $result;
 
     }catch(Exception $e){
         die($e->getMessage());
