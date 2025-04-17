@@ -21,19 +21,39 @@ function getAllMessagesByDateDesc(PDO $connectDB): array
 
 
 // on veut insérer le formulaire dans la db
-function setArticle(PDO $pdo, string $name, string $text, string $date): bool
+function setArticle(PDO $pdo, string $name,string $email,string $text, string $date): bool
 {
-    $prepare = $pdo->prepare(
-        "
-INSERT INTO `article` (`surname`,`message`,`create_date`) 
-VALUES (?,?,?);
-"
-    );
-    try {
-        $name = strip_tags($_POST['name']); // on retire les tags
-        $name = htmlspecialchars($name, ENT_QUOTES); // on encode les caractères spéciaux
-        $name = trim($name);
-        $prepare->execute([$name, $text, $date]);
+
+    $error="";
+
+    $nameInsert = strip_tags($name); // on retire les tags
+    $nameInsert = htmlspecialchars($name, ENT_QUOTES); // on encode les caractères spéciaux
+    $nameInsert = trim($name);
+
+
+    $emailInsert = filter_var($email,FILTER_VALIDATE_EMAIL);
+
+    $textInsert = trim(htmlspecialchars(strip_tags($text),ENT_QUOTES));
+
+    if(empty($nameInsert)) $error .="Nom incorrecte<br>";
+    if(strlen($nameInsert)>100) $error .= "Nom trop long !<br>";
+    if($emailInsert===false) $error .="Email non valide";
+    if(empty($textInsert)) $error .="Message incorrecte<br>";
+    if(strlen($textInsert)>600) $error .= "Message trop long !<br>";
+
+    # si on a une erreur, on sort et on envoie les erreurs
+    if(!empty($error)) return $error;
+
+
+        $prepare = $pdo->prepare(
+            "
+    INSERT INTO `article` (`surname`,`email`,`message`,`create_date`) 
+    VALUES (?,?,?,?);
+    "
+        );
+
+    try{
+        $prepare->execute([$nameInsert,$emailInsert,$textInsert,$date]);
         return true; // efface les espaces avant et arrière
     } catch (Exception $e) {
         die($e->getMessage());
