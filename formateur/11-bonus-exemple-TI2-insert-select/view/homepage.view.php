@@ -35,6 +35,7 @@ if(isset($error)):
 </form>
 
 <?php
+
 // si on a pas de message (tableau vide)
 if(empty($messages)):
 ?>
@@ -73,7 +74,7 @@ else:
 endif;
 echo "$pagination<hr>";
 
-# var_dump($_POST,$db,$page,$nbTotMessage,$pagination);
+var_dump($_GET,$_POST,$db,$page,$nbTotMessage,$pagination);
 ?>
 </body>
 </html>

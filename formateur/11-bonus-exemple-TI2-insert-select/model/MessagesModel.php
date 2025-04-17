@@ -78,7 +78,7 @@ function addMessage(PDO $con,string $name, string $email, string $text) : bool|s
 
 function getNbTotalMessage(PDO $con): int
 {
-    // on compte le nombre de message total
+    // on compte le nombre de messages total
     $query = $con->query("SELECT COUNT(*) as nb FROM `messages` ");
     // on renvoie l'entier stocké dans nb
     return $query->fetch()['nb'];
