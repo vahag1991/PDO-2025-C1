@@ -5,5 +5,5 @@ $myBDD = new PDO(
     '',
 );
 
-
+var_dump($myBDD);
 echo "hi";
