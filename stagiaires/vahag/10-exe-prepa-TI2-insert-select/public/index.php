@@ -28,36 +28,34 @@ try{
 }
 
 # ici notre code de traitement de la page
+ 
+// si on a envoyé le formulaire
 if(isset($_POST['surname'],$_POST['email'],$_POST['message'])){
-
-    // création de variables locales
-    $surname = strip_tags($_POST['surname']); // on retire les tags
-    $surname = htmlspecialchars($surname,ENT_QUOTES);// on encode les caractères spéciaux
-    $surname = trim($surname); // efface les espaces avant et arrière
-
-    $email = filter_var($_POST['email'],FILTER_VALIDATE_EMAIL);// faut false si mail pas valide
-
-    $message = trim(htmlspecialchars(strip_tags($_POST['message']),ENT_QUOTES));
-
-    // on est ici
-
-    setArticle($db,$surname,$email,$message);
+ 
+    // tentative d'insertion
+    $insert = addNewarticle($db, $_POST['surname'],$_POST['email'],$_POST['message']);
+    // ça a fonctionné
+    if($insert===true){
+        header("Location: ./");
+        exit();
+    }else{
+        $error = $insert;
+    }
 }
-
-// si on a envoyé le formulaire avec les bons champs
-
-
-// on veut récupérer tous les messages de la table `article` par date DESC
-
-$messages = getAllMessagesByDateDesc($db);
-
-
-
-
-
+ 
+ 
+ 
+# chargement de tous nos articles
+$articles = getAllarticleByDateDesc($db);
+ 
+ 
+ 
+ 
+ 
 # chargement de la vue
 require_once "../view/homepage.view.php";
-
+ 
 # bonne pratique
 # fermeture de connexion
 $db = null;
+ 
