@@ -39,17 +39,17 @@ if (isset($_POST['surname'], $_POST['email'], $_POST['message'])) {
             header('Location: ./'); 
             exit();
         } else {
-            echo "Erreur lors de l'insertion des données.";
+            $error= "Erreur lors de l'insertion des données.";
         }
     } else {
-        echo "Tous les champs du formulaire sont obligatoires. Veuillez remplir tous les champs.";
+        $error= "Tous les champs du formulaire sont obligatoires. Veuillez remplir tous les champs.";
     }
-} else {
-    echo "Données du formulaire non reçues.";
 }
+
+
 // on veut récupérer tous les messages de la table `article` par date DESC
 $message = getArticles($db);
-
+$nbArticles = count($message);
 
 
 

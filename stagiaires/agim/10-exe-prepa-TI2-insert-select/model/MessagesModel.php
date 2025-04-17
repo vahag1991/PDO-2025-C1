@@ -15,14 +15,26 @@ function createArticles(PDO $pdo, string $surname, string $email, string $messag
     $prepare = $pdo->prepare('
         INSERT INTO article (surname, email, message) VALUES (?, ?, ?)
     ');
+
     $insertSurnom = trim(htmlspecialchars(strip_tags($surname)));
-    $insertEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
+    $insertEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
     $insertMessage = trim(htmlspecialchars(strip_tags($message)));
+   if(
+        strlen($insertSurnom)>60 ||
+        empty($insertSurnom) ||
+        $insertEmail===false ||
+        strlen($insertEmail)>120 ||
+        empty($insertMessage) ||
+        strlen($insertMessage)> 500
+    ) return false;
     
     $allInsert = [$insertSurnom, $insertEmail, $insertMessage];
-    $prepare->execute($allInsert);
-    if (empty($allInsert)) {
+    try {
+        $prepare->execute($allInsert);
+        return true;
+    }catch (Exception $e){
         return false;
     }
-    return true;
+
+
 }

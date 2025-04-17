@@ -18,7 +18,13 @@
             <h2>Laissez-nous un message</h2>
         </div>
     </div>
-
+    <?php
+    if(isset($error)):
+        ?>
+        <h3 class="error"><?=$error?></h3>
+    <?php
+    endif;
+    ?>
     <div class="container mt-5 border border-3 border-dark shadow py-5">
         <form method="POST" class="w-50 mx-auto">
             <div class="mb-3">
@@ -27,7 +33,7 @@
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email :</label>
-                <input type="text" class="form-control" id="email" name="email" >
+                <input type="email" class="form-control" id="email" name="email" >
             </div>
             <div class="mb-3">
                 <label for="message" class="form-label">Message :</label>
@@ -37,21 +43,22 @@
         </form>
     </div>
     <hr>
+
     <div class="container mt-4">
         <div class="row">
             <div class="col-12">
                 <h2 class="text-center">
-                    <?php if (count($message) === 0): ?>
+                    <?php if ($nbArticles === 0): ?>
                         Pas encore de messages
                     <?php else: ?>
-                        Il y a <?= count($message) ?> message<?= count($message) === 1 ? "" : "s"; ?>
+                        Il y a <?= $nbArticles ?> message<?= $nbArticles === 1 ? "" : "s"; ?>
                     <?php endif; ?>
                 </h2>
                 <hr>
             </div>
         </div>
 
-        <?php if (count($message) > 0): ?>
+        <?php if ($nbArticles > 0): ?>
             <div class="row">
                 <?php foreach ($message as $mess): ?>
                     <div class="col-md-6 mb-4">
