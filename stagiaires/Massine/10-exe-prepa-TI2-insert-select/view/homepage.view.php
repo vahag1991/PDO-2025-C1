@@ -13,10 +13,6 @@
 <body>
     <h1>Exercice</h1>
     <h2>Laissez-nous un message</h2>
-    <pre>
-    Le formulaire se trouve ici
-</pre>
-    <hr>
     <form action="" method="POST">
         <label for="name">Nom :</label>
         <input type="text" name="name" id="name" required>
@@ -29,18 +25,43 @@
 
         <button type="submit">Envoyer</button>
     </form>
-    <hr>
-    <div>
-        Nos messages par date DESC
-
-        NOM
-        TEXTE
-        DATE
-    </div>
     <?php
-    var_dump($db, $messages,$_POST);
+    // si le tableau est vide (pas d'articles)
+    if (empty($messages)):
     ?>
-    <hr>
+        <div class="nomessages">
+            <h2>Il n'y a pas encore de message</h2>
+            <h3>Veuillez revenir plus tard</h3>
+        </div>
+    <?php
+    // le tableau n'est pas vide, on a au moins un message
+    else:
+        // on prend le nombre de résultats
+        $nbArticles = count($messages);
+        // on crée un pluriel si jamais on a plus d'un résultat
+        $pluriel = ($nbArticles > 1) ? "s" : "";
+    ?>
+        <div class="messages">
+            <h2>Il y a <?= $nbArticles ?> message<?= $pluriel ?></h2>
+            <hr>
+            <?php
+            // tant qu'on a des messages
+            foreach ($messages as $message):
+            ?>
+                <h3><?= $message['surname'] ?></h3>
+                <p><?= $message['message'] ?></p>
+                <p><?= $message['create_date'] ?></p>
+                <hr>
+            <?php
+            // fin de la boucle
+            endforeach;
+            ?>
+
+        </div>
+    <?php
+    endif;
+    ?>
+
 </body>
 
 </html>

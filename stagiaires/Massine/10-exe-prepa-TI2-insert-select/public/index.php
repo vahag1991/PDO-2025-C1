@@ -10,6 +10,7 @@ require_once "../config.php";
 # chargement du modèle (fonctions)
 require_once "../model/MessagesModel.php";
 
+
 # connexion à PDO
 # connexion à PDO
 try {
@@ -31,19 +32,30 @@ try {
     die("Code : {$e->getCode()} <br> Message : {$e->getMessage()}");
 }
 
+// si on a envoyé le formulaire avec les bons champs
+// ça a fonctionné# code...
+// tentative d'insertion
+
+
+if (isset($_POST['name'], $_POST['text'], $_POST['date'])) {
+
+    // tentative d'insertion
+    $insert = setArticle($db, $_POST['name'], $_POST['text'], $_POST['date']);
+    // ça a fonctionné
+    if ($insert === true) {
+        header("Location: ./");
+        exit();
+    } else {
+        $error = $insert;
+    }
+}
 $messages = getAllMessagesByDateDesc($db);
+
+
+
 # ici notre code de traitement de la page
 require_once "../view/homepage.view.php";
-// si on a envoyé le formulaire avec les bons champs
-if (isset($_POST['name'], $_POST['text'], $_POST['date'])) {
-    if (!empty($_POST['name'] && !empty($_POST['text']) && !empty($_POST['date']))) {
-             setArticle($db, $_POST['name'], $_POST['text'], $_POST['date']);
-            header("Location: ./");
-            exit();// ça a fonctionné# code...
-    }
-    // tentative d'insertion
 
-}
 
 
 // on veut récupérer tous les messages de la table `article`

@@ -1,6 +1,6 @@
 <?php
 # fonctions en lien avec la table article
-function getAllMessagesByDateDesc(PDO $connectDB): string|array
+function getAllMessagesByDateDesc(PDO $connectDB): array
 {
     try {
         $recup = $connectDB->query("
@@ -9,7 +9,7 @@ function getAllMessagesByDateDesc(PDO $connectDB): string|array
         ORDER BY `create_date` DESC
 ");
         // pas de résultats, on envoie un (string)
-        if ($recup->rowCount() === 0) return "Pas encore de message";
+        // if ($recup->rowCount() === 0) return "Pas encore de message";
 
         // si on a au moins un résultat
         // on envoie un tableau indexé (array)
@@ -21,7 +21,7 @@ function getAllMessagesByDateDesc(PDO $connectDB): string|array
 
 
 // on veut insérer le formulaire dans la db
-function setArticle(PDO $pdo, string $name, string $message, string $date): bool
+function setArticle(PDO $pdo, string $name, string $text, string $date): bool
 {
     $prepare = $pdo->prepare(
         "
@@ -33,7 +33,7 @@ VALUES (?,?,?);
         $name = strip_tags($_POST['name']); // on retire les tags
         $name = htmlspecialchars($name, ENT_QUOTES); // on encode les caractères spéciaux
         $name = trim($name);
-        $prepare->execute([$name, $message, $date]);
+        $prepare->execute([$name, $text, $date]);
         return true; // efface les espaces avant et arrière
     } catch (Exception $e) {
         die($e->getMessage());
