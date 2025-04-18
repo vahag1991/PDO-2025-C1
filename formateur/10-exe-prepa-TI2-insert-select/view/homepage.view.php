@@ -11,25 +11,64 @@
 <body>
 <h1>Exercice</h1>
 <h2>Laissez-nous un message</h2>
-<pre>
-    Le formulaire se trouve ici
-</pre>
+<?php
+// si inséré
+if(isset($great)):
+?>
+<h3 class="thanks"><?=$great?></h3>
+<script>
+    // redirection de base, à éviter
+    function redirect() {
+        document.location.href="./";
+    }
+    setTimeout(redirect, 1500);
+</script>
+<?php
+elseif(isset($error)):
+?>
+<h3 class="error"><?=$error?></h3>
+<?php
+endif;
+?>
+<form action="" method="post">
+    <label for="name">Nom</label>
+    <input type="text" name="thename" id="name" required>
+    <label for="email">Email</label>
+    <input type="email" name="theemail" id="email" required>
+    <label for="message">Message</label>
+    <textarea name="themessage" id="message" rows="6" required></textarea>
+    <button type="submit">Envoyer</button>
+</form>
 <hr>
-<pre>
-Affichage du nombre de messages :
+<?php
+// si on a pas d'articles ($nbArticles === 0)
+if(empty($nbArticles)):
+?>
+<h3 class="nomessage">Pas encore de message</h3>
+<?php
+// sinon il y a au moins 1 message
+else:
+    // on va créer une variable pour ajouter le "s"
+    // si on a plus d'un article avec une ternaire
+    $pluriel = $nbArticles>1? "s" : "";
+?>
+    <div class="message">
+    <h3>Il y a <?=$nbArticles?> message<?=$pluriel?></h3>
+        <?php
+        foreach ($articles as $article):
+        ?>
+        <h4><?=$article['surname']?></h4>
+        <p><?=$article['message']?></p>
+        <h5><?=$article['create_date']?></h5><hr>
+        <?php
+        endforeach;
+        ?>
+    </div>
+<?php
+endif;
 
-Pas de message : Pas encore de message
-1 message : Il y a 1 message
-Plusieurs messages : Il y a X messages
-</pre>
-<hr>
-<pre>
-    Nos messages par create_date DESC
-
-    surname
-    message
-    create_date
-</pre>
+var_dump($connectPDO,$_POST,$articles,$nbArticles,$insert);
+?>
 <hr>
 </body>
 </html>

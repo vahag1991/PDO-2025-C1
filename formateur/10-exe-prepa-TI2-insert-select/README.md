@@ -1,6 +1,8 @@
 # Exercice TI2 - Insertion et sélection
 
-## Web C2 2025
+## Web C2 2025 MVC
+
+!["image"](datas/MVC.png)
 
 ### Création d'une branche
 
