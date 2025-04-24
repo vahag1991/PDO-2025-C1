@@ -8,7 +8,10 @@ function getAllArticleByDateDesc(PDO $connectDB): string|array
         FROM `article` 
         ORDER BY `create_date` DESC
 ");
-        return $recup->fetchAll();
+    
+        $result= $recup->fetchAll();
+        $recup->closeCursor();
+        return $result;
 
     }catch(Exception $e){
         die($e->getMessage());

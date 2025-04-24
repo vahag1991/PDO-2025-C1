@@ -46,7 +46,7 @@ if(isset($_POST['surname'],$_POST['email'],$_POST['message'])){
  
  
 # chargement de tous nos articles
-$articles = getAllarticleByDateDesc($db);
+$articles = getAllArticleByDateDesc($db);
  
  
  

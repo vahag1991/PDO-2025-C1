@@ -22,11 +22,11 @@ endif;
 ?>
 <form action="" method="post">
     <label for="surname">surname</label>
-    <input type="text" name="surname" id="surname" required>
+    <input type="text" name="surname" id="surname" >
     <label for="email">Email</label>
-    <input type="email" name="email" id="email" required>
+    <input type="email" name="email" id="email" >
     <label for="message">Message</label>
-    <textarea name="message" id="message" rows="10" required></textarea>
+    <textarea name="message" id="message" rows="10"></textarea>
     <button type="submit">Envoyer</button>
 </form>
  
@@ -51,23 +51,23 @@ else:
     <hr>
     <?php
     // tant qu'on a des messages
-    foreach ($articles as $art):
+    foreach ($articles as $colonne):
     ?>
-    <h3><?=$art['surname']?></h3>
-    <p><?=$art['message']?></p>
-    <p><?=$art['create_date']?></p>
+    <h3><?=$colonne['surname']?></h3>
+    <p><?=$colonne['message']?></p>
+    <p><?=$colonne['create_date']?></p>
     <hr>
     <?php
     // fin de la boucle
     endforeach;
     ?>
- 
+   
 </div>
 <?php
 endif;
 ?>
 <?php
-var_dump($db,$articles,$_POST);
+var_dump($articles);
 ?>
 </body>
 </html>
