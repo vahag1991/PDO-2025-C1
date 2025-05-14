@@ -49,14 +49,15 @@ if(isset($error)):
 
     // on va ajouter une variable pour le 's' de message
     // si nécessaire pour le h2 suivant
-
+$pluriel = ($nbArticle>1)? "s":"";
 ?>
 
 <div class="messages">
-    <h2>Il y a x message(s)</h2>
+    <h2>Il y a <?=$nbArticle?> message<?=$pluriel?></h2>
     <?php
+    echo $pagination."<hr>";
     // ici affichage de la pagination
-    // tant qu'on a des messages
+    var_dump($messages);
 
     ?>
     <h4>surname</h4>
@@ -73,8 +74,9 @@ if(isset($error)):
 // fin du if
 
 // ici affichage de la pagination
+echo $pagination;
 
-
+var_dump($_POST,$_GET,$db,$nbArticle,$pagination,$messages);
 ?>
 </body>
 </html>
